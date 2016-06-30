@@ -12,6 +12,7 @@
 		A01B1FF71D23FE5A00F82DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01B1FF51D23FE5900F82DC9 /* Main.storyboard */; };
 		A01B1FF91D23FE5A00F82DC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01B1FF81D23FE5A00F82DC9 /* Assets.xcassets */; };
 		A01B1FFC1D23FE5A00F82DC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01B1FFA1D23FE5A00F82DC9 /* LaunchScreen.storyboard */; };
+		A01B20041D24015500F82DC9 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01B20031D24015500F82DC9 /* EstimoteSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		A01B1FF81D23FE5A00F82DC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A01B1FFB1D23FE5A00F82DC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01B1FFD1D23FE5A00F82DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A01B20031D24015500F82DC9 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
+		A01B20061D24284F00F82DC9 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01B20041D24015500F82DC9 /* EstimoteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +60,9 @@
 			children = (
 				A01B1FF11D23FE5900F82DC9 /* AppDelegate.swift */,
 				A01B1FF31D23FE5900F82DC9 /* ViewController.swift */,
+				A01B20061D24284F00F82DC9 /* ObjCBridge.h */,
 				A01B1FF51D23FE5900F82DC9 /* Main.storyboard */,
+				A01B20031D24015500F82DC9 /* EstimoteSDK.framework */,
 				A01B1FF81D23FE5A00F82DC9 /* Assets.xcassets */,
 				A01B1FFA1D23FE5A00F82DC9 /* LaunchScreen.storyboard */,
 				A01B1FFD1D23FE5A00F82DC9 /* Info.plist */,
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					A01B1FED1D23FE5900F82DC9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = PB5S47GH58;
 					};
 				};
 			};
@@ -251,10 +258,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GCBeacon",
+				);
 				INFOPLIST_FILE = GCBeacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hallam.GCBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 			};
 			name = Debug;
 		};
@@ -262,10 +276,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GCBeacon",
+				);
 				INFOPLIST_FILE = GCBeacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hallam.GCBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 			};
 			name = Release;
 		};
@@ -288,6 +309,7 @@
 				A01B20021D23FE5A00F82DC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
