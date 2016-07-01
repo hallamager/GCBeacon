@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
@@ -34,13 +35,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     }
     
     func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+        
+        let player = MPMusicPlayerController.systemMusicPlayer()
+        
+        player.play()
+        
         let notification = UILocalNotification()
         notification.alertBody =
-            "You Enter the region of Ibeacon Mint Cocktail" +
-            "You Enter the region of Ibeacon Mint Cocktail" +
-            "You Enter the region of Ibeacon Mint Cocktail" +
-        "You Enter the region of Ibeacon Mint Cocktail"
+            "You entered the region of Ibeacon Mint Cocktail"
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        
+    }
+    
+    func beaconManager(manager: AnyObject, didExitRegion region: CLBeaconRegion) {
+        
+        let player = MPMusicPlayerController.systemMusicPlayer()
+        
+        player.stop()
+        
+        let notification = UILocalNotification()
+        notification.alertBody =
+        "You exited the region of Ibeacon Mint Cocktail"
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
