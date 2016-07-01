@@ -27,9 +27,11 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
 
         self.beaconManager.requestAlwaysAuthorization()
         
-        let mediaItems = MPMediaQuery.songsQuery().items
+        let query = MPMediaQuery.songsQuery()
+        let predicateByGenre = MPMediaPropertyPredicate(value: "Singer/Songwriter", forProperty: MPMediaItemPropertyGenre)
+        query.filterPredicates = (NSSet(object: predicateByGenre) as! Set<MPMediaPredicate>)
         
-        let mediaCollection = MPMediaItemCollection(items: mediaItems!)
+        let mediaCollection = MPMediaItemCollection(items: query.items!)
         
         let player = MPMusicPlayerController.systemMusicPlayer()
         player.setQueueWithItemCollection(mediaCollection)
